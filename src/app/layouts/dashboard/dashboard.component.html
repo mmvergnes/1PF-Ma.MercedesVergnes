@@ -1,0 +1,27 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" [opened]="isMobile() ? 'false' : 'true'"
+    [mode]="isMobile() ? 'over' : 'side'">
+    <p>Lista de Alumnos</p>
+    @if (showFiller) {
+    <p>Estos son los alumnos inscriptos en el Ciclo Lectivo 2024</p>
+    }
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Más información
+    </button>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+
+    <mat-toolbar color="primary">
+      <button (click)="drawer.toggle()" mat-icon-button class="example-icon"
+        aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <p>Dashboard | Ciclo Lectivo 2024</p>
+    </mat-toolbar>
+    <main style="padding: 1rem;">
+      <app-users></app-users>
+    </main>
+  </div>
+
+</mat-drawer-container>
