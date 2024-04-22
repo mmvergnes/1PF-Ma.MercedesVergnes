@@ -1,26 +1,42 @@
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" [opened]="isMobile() ? 'false' : 'true'"
     [mode]="isMobile() ? 'over' : 'side'">
-    <p>Lista de Alumnos</p>
-    @if (showFiller) {
-    <p>Estos son los alumnos inscriptos en el Ciclo Lectivo 2024</p>
-    }
-    <button (click)="showFiller = !showFiller" mat-raised-button>
-      Más información
-    </button>
+    <p>Home</p>
+    <p>Alumnos</p>
+    <p>Clases</p>
   </mat-drawer>
 
   <div class="example-sidenav-content">
 
     <mat-toolbar color="primary">
-      <button (click)="drawer.toggle()" mat-icon-button class="example-icon"
-        aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <p>Dashboard | Ciclo Lectivo 2024</p>
+      <div class="toolbar-content">
+        <div>
+          <button (click)="drawer.toggle()" mat-icon-button class="example-icon"
+            aria-label="Example icon-button with menu icon">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <span>Dashboard | Ciclo Lectivo 2024</span>
+        </div>
+        <div>
+          <span *ngIf="authUser$ | async; let user">{{ user?.firstName }} <button (click)="logout();mostrarUsuarios = !mostrarUsuarios" mat-mini-fab color="warn" class="example-icon"
+            aria-label="Example icon-button with menu icon">
+            <mat-icon>logout</mat-icon>
+          </button></span>
+
+        </div>
+      </div>
     </mat-toolbar>
+
     <main style="padding: 1rem;">
-      <app-users></app-users>
+      <div class="d-flex justify-content-center m-5">
+        <button (click)="login(); mostrarUsuarios = !mostrarUsuarios" mat-flat-button color="primary">
+          Iniciar Sesión
+        </button>
+      </div>
+
+      <app-users *ngIf="mostrarUsuarios"></app-users>
+      <!-- <hr class="m-5">
+      <app-productos></app-productos> -->
     </main>
   </div>
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IUser } from './models';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalUserComponent } from './components/modal-user/modal-user.component';
@@ -92,4 +92,5 @@ export class UsersComponent {
     if (confirm('Seguro desea eliminar este usuario?'))
       this.users = this.users.filter((u) => u.id != id);
   }
+
 }

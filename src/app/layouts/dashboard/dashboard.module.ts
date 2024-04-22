@@ -11,6 +11,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { UsersModule } from './pages/users/users.module';
 import { SharedModule } from '../../shared/shared.module';
+import { ProductosModule } from './pages/productos/productos.module';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { SharedModule } from '../../shared/shared.module';
     MatIconModule,
     MatButtonModule,
     UsersModule,
-    SharedModule
+    SharedModule,
+    ProductosModule
   ],
   exports: [
     DashboardComponent
