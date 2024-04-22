@@ -10,3 +10,9 @@
 .example-sidenav {
   padding: 20px;
 }
+.toolbar-content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
